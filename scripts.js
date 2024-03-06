@@ -45,12 +45,12 @@ function makeAccusations() {
 		h3.innerHTML = `Accusation ${i + 1}`;
 		h3.setAttribute("id", `acc-${i + 1}`);
 		document.body.appendChild(h3);
-		h3.addEventListener("click", () => {
-			AccusationFactory(friend, weapon, location);
-		});
+		h3.addEventListener("click", AccusationFactory(friend, weapon, location));
 	}
 }
 
 function AccusationFactory(friend, weapon, location) {
-	alert(`I accuse ${friend}, with the ${weapon} in the ${location}!`);
+	return function () {
+		alert(`I accuse ${friend}, with the ${weapon} in the ${location}!`);
+	};
 }
